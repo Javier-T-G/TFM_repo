@@ -1,11 +1,18 @@
 import os
 import glob as gb
 
-data_path = "/path/to/dataset"
+
+
+
+# Google Drive folder where the dataset is stored:
+data_path = 'gdrive/MyDrive/TFM/TFM/Datasets/oxford'
 gap = [1, 2]
 reverse = [0, 1]
-rgbpath = data_path + '/JPEGImages'  # path to the dataset
-folder = gb.glob(os.path.join(rgbpath, '*'))
+# Folder with the unzipped rgbd images:
+rgbpath = data_path + '/swinging_4_static/rgbd'  # path to the dataset
+# Get only the rgb images, and sort them alphanumerically
+# "folder" variable contains the path to every image of rgbpath
+folder = sorted(gb.glob(os.path.join(rgbpath, '*color.png')))
 
 for r in reverse:
   for g in gap:
